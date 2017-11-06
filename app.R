@@ -16,4 +16,4 @@ jug() %>%
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
   simple_error_handler_json() %>%
-  serve_it()
+  serve_it("35.193.69.186")
