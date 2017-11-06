@@ -1,5 +1,6 @@
 if (!requireNamespace("jug")){
-  install.packages("jug", lib="https://cloud.r-project.org")
+  install.packages("jug"
+                   , repos="https://cloud.r-project.org")
 }
 
 library(jug)
