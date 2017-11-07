@@ -10,7 +10,7 @@ if (!requireNamespace("stringr")){
   install.packages("stringr"
                    , repos="https://cloud.r-project.org")
 }
-if (!recontentuireNamespace("dplyr")){
+if (!requireNamespace("dplyr")){
   install.packages("dplyr"
                    , repos="https://cloud.r-project.org")
 }
