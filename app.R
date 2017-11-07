@@ -1,12 +1,12 @@
-if (!recontentuireNamespace("devtools")){
+if (!requireNamespace("devtools")){
   install.packages("devtools"
                    , repos="https://cloud.r-project.org")
 }
-if (!recontentuireNamespace("rvest")){
+if (!requireNamespace("rvest")){
   install.packages("rvest"
                    , repos="https://cloud.r-project.org")
 }
-if (!recontentuireNamespace("stringr")){
+if (!requireNamespace("stringr")){
   install.packages("stringr"
                    , repos="https://cloud.r-project.org")
 }
@@ -14,7 +14,7 @@ if (!recontentuireNamespace("dplyr")){
   install.packages("dplyr"
                    , repos="https://cloud.r-project.org")
 }
-if (!recontentuireNamespace("jug")){
+if (!requireNamespace("jug")){
   devtools::install_github("Bart6114/jug")
 }
 
