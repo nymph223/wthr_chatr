@@ -6,8 +6,10 @@ if (!requireNamespace("jug")){
 library(jug)
 
 jug() %>%
+  cors() %>% 
   get("/", function(req, res, err){
-    "Hello World!"
+    res$json("hello world!")
+    res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>%
   get("/keyboard", function(req,res,err){
     body<-list(type="buttons",
@@ -16,4 +18,4 @@ jug() %>%
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
   simple_error_handler_json() %>%
-  serve_it("35.193.69.186")
+  serve_it("0.0.0.0")
