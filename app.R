@@ -14,6 +14,10 @@ if (!requireNamespace("dplyr")){
   install.packages("dplyr"
                    , repos="https://cloud.r-project.org")
 }
+if (!requireNamespace("futile.logger")){
+  install.packages("futile.logger"
+                   , repos="https://cloud.r-project.org")
+}
 if (!requireNamespace("jug")){
   devtools::install_github("Bart6114/jug")
 }
