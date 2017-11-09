@@ -35,7 +35,7 @@ jug() %>%
   }) %>%
   get("/keyboard", function(req,res,err){
     body<-list(type="buttons",
-               buttons= c("선택1","선택2","선택3"))
+               buttons= c("서울 날씨","강원도 날씨","날씨 알려줘"))
     res$json(body)
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
