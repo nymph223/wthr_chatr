@@ -165,7 +165,9 @@ jug() %>%
                daily[3], ", 오후 ", daily[6])
     }
     resu<-paste0(day, "의 " ,loc ,"(은/는) ", daily,"입니다. ",locm)
-    body<-list(message=list(text=resu))
+    body<-list(message=list(text=resu),
+              keyboard=list(type="buttons",
+               buttons= c("서울 날씨","강원도 날씨","날씨 알려줘")))
     res$json(body)
     return(res)
   }) %>% 
