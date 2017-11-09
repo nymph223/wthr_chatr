@@ -17,8 +17,10 @@ apt install -y r-base r-base-dev
 # how to use screen
 # http://www.incodom.kr/Linux/%EA%B8%B0%EB%B3%B8%EB%AA%85%EB%A0%B9%EC%96%B4/screen
 
+
 screen
 
 git clone https://github.com/mrchypark/wthr_chatr
+##use own github page
 cd wthr_chatr
 Rscript app.R
