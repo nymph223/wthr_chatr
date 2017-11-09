@@ -164,5 +164,5 @@ jug() %>%
   }) %>% 
   logger(threshold = futile.logger::DEBUG, log_file='logfile.log', console=TRUE) %>%
   simple_error_handler_json() %>%
-  serve_it(verbose=TRUE)
-  # serve_it(host="0.0.0.0", port=80, verbose=TRUE)
+  # serve_it(verbose=TRUE)
+  serve_it(host="0.0.0.0", port=80, verbose=TRUE)
