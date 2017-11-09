@@ -46,7 +46,6 @@ jug() %>%
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
   post("/message", function(req,res,err){
-    print()
     content<-jsonlite::fromJSON(req$body)$content
     print(content)
     print("---")
@@ -165,5 +164,5 @@ jug() %>%
   }) %>% 
   logger(threshold = futile.logger::DEBUG, log_file='logfile.log', console=TRUE) %>%
   simple_error_handler_json() %>%
-  # serve_it(verbose=TRUE)
-  serve_it(host="0.0.0.0", port=80, verbose=TRUE)
+  serve_it(verbose=TRUE)
+  # serve_it(host="0.0.0.0", port=80, verbose=TRUE)
