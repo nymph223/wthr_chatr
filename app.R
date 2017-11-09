@@ -50,7 +50,7 @@ jug() %>%
   post("/message", function(req,res,err){
     body<-jsonlite::fromJSON(req$body)
     print(body$content)
-    form <- "https://docs.google.com/forms/d/1pJsY_O9jBljHZljfVQAlWrPxPIshUzyhMdmolLyCBcA"
+    form <- "https://docs.google.com/forms/d/1PiLeDNpax4-MEGVEfYj-HHU-10lcXr_-HoymrpKN-28"
     ping <- googleformr::gformr(form)
     body<-list(user_key=body$user_key,
                type=body$type,
