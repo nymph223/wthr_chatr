@@ -14,6 +14,10 @@ if (!requireNamespace("dplyr")){
   install.packages("dplyr"
                    , repos="https://cloud.r-project.org")
 }
+if (!requireNamespace("httr")){
+  install.packages("httr"
+                   , repos="https://cloud.r-project.org")
+}
 if (!requireNamespace("futile.logger")){
   install.packages("futile.logger"
                    , repos="https://cloud.r-project.org")
@@ -22,10 +26,12 @@ if (!requireNamespace("jug")){
   devtools::install_github("Bart6114/jug")
 }
 
+
 library(rvest)
 library(dplyr)
 library(stringr)
 library(jug)
+library(httr)
 
 jug() %>%
   cors() %>% 
@@ -40,8 +46,11 @@ jug() %>%
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
   post("/message", function(req,res,err){
+    print()
     content<-jsonlite::fromJSON(req$body)$content
     print(content)
+    print("---")
+    print(jsonlite::fromJSON(req$body))
     root <- "http://search.daum.net/search?nil_suggest=btn&w=tot&DA=SBC&q="
     content<-paste("날씨", content)
     content<-gsub(" ","+",content)
