@@ -25,13 +25,15 @@ if (!requireNamespace("futile.logger")){
 if (!requireNamespace("jug")){
   devtools::install_github("Bart6114/jug")
 }
-
+if (!requireNamespace("googleformr")){
+  devtools::install_github("data-steve/googleformr")
+}
 
 library(rvest)
 library(dplyr)
 library(stringr)
 library(jug)
-library(httr)
+library(googleformr)
 
 jug() %>%
   cors() %>% 
@@ -46,10 +48,15 @@ jug() %>%
     res$set_header("Content-Type", "application/json; charset=utf-8")
   }) %>% 
   post("/message", function(req,res,err){
-    content<-jsonlite::fromJSON(req$body)$content
-    print(content)
-    print("---")
-    print(jsonlite::fromJSON(req$body))
+    body<-jsonlite::fromJSON(req$body)
+    print(body$content)
+    form <- "https://docs.google.com/forms/d/1pJsY_O9jBljHZljfVQAlWrPxPIshUzyhMdmolLyCBcA"
+    ping <- googleformr::gformr(form)
+    body<-list(user_key=body$user_key,
+               type=body$type,
+               content=body$content)
+    ping(body)
+    content<-body$content
     root <- "http://search.daum.net/search?nil_suggest=btn&w=tot&DA=SBC&q="
     content<-paste("날씨", content)
     content<-gsub(" ","+",content)
